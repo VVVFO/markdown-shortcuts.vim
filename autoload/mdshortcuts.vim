@@ -39,10 +39,10 @@ function! mdshortcuts#ToggleSingleCharacterAroundWord(char)
     
     " if begins and ends with *, then remove
     if end_with_char && begin_with_char
-        call RemoveSingleCharacterAroundWord()
+        call mdshortcuts#RemoveSingleCharacterAroundWord()
     " add otherwise
     else
-        call AddSingleCharacterAround(a:char)
+        call mdshortcuts#AddSingleCharacterAround(a:char)
     endif
 
 endfunction
