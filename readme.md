@@ -1,6 +1,6 @@
 # markdown-shortcuts.vim
 
-Better Markdown editing in Vim.
+Enables easy italicize/boldify/inline-codify when editing Markdown files.
 
 ## Usage
 
