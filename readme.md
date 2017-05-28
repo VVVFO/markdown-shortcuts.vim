@@ -12,7 +12,7 @@ nmap <leader>mb <Plug>(MarkdownToggleBold)
 nmap <leader>mt <Plug>(MarkdownToggleInlineCode)
 ```
 
-Or even better, on macOS you can map them to `<D-i>`, `<D-b>` etc. (If you really love iA Writer, consider trying [goyo.vim](https://github.com/junegunn/goyo.vim) and [limelight.vim](https://github.com/junegunn/limelight.vim)).
+Or even better, on MacVim you can map them to `<D-i>` etc. (If you really love iA Writer, consider trying out [goyo.vim](https://github.com/junegunn/goyo.vim) and [limelight.vim](https://github.com/junegunn/limelight.vim))
 
 ## Installation
 
