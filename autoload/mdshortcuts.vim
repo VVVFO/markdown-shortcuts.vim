@@ -1,4 +1,4 @@
-function! markdown-shortcuts#AddSingleCharacterAround(char)
+function! mdshortcuts#AddSingleCharacterAround(char)
     " viW^[ will move to the end of the word
     normal! viW
     " if the last character is not already that character
@@ -19,7 +19,7 @@ endfunction
 
 " Removing single character around WORD (based on whitespace not alphabetical)
 " then move to the end of the WORD
-function! markdown-shortcuts#RemoveSingleCharacterAroundWord()
+function! mdshortcuts#RemoveSingleCharacterAroundWord()
     " viW^[ will to go the end of the word
     " xBx will remove the pair of asterisks
     " E will get to the end of the word
@@ -27,7 +27,7 @@ function! markdown-shortcuts#RemoveSingleCharacterAroundWord()
 endfunction
 
 " If the current WORD is surronded by the argument character then remove, otherwise add
-function! markdown-shortcuts#ToggleSingleCharacterAroundWord(char)
+function! mdshortcuts#ToggleSingleCharacterAroundWord(char)
     " first move to the end of the word
     normal! viW
     " see if the last character is *
