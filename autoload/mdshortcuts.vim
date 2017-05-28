@@ -123,7 +123,7 @@ function! mdshortcuts#ToggleHeaderHn(n)
     " argument level
     " otherwise (current level = 0) then add the argument level header
     if current_header_level == a:n
-        normal! '^dW$'
+        normal! ^dW$
     elseif current_header_level != a:n && current_header_level != 0
         execute 'normal! ^cW' . repeat('#', a:n) . '$' 
     else
