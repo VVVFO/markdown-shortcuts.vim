@@ -1,6 +1,6 @@
 # markdown-shortcuts.vim
 
-Enables easy *emphasis* / **strong** / `in-line code block` and other syntaxes for editing Markdown files. iA Writer, anyone?
+Enables easy *emphasis* / **strong** / `in-line code block` and other syntaxes for editing Markdown files. Basically all the iA Writer shortcuts and more with customisability.
 
 ## Usage
 
@@ -18,7 +18,7 @@ nmap <leader>m5 <Plug>(MarkdownToggleHeaderH5)
 nmap <leader>m6 <Plug>(MarkdownToggleHeaderH6)
 ```
 
-Or even better, on MacVim you can map them to `<D-i>` etc. (If you really love iA Writer, consider trying out [goyo.vim](https://github.com/junegunn/goyo.vim) and [limelight.vim](https://github.com/junegunn/limelight.vim))
+Or even better, on MacVim you can map them to `<D-i>` etc. (If you really love iA Writer (like me :), consider also trying out [goyo.vim](https://github.com/junegunn/goyo.vim) and [limelight.vim](https://github.com/junegunn/limelight.vim))
 
 ## Installation
 
@@ -40,7 +40,7 @@ Put this into your `.vimrc`:
 Plug 'VVVFO/markdown-shortcuts.vim'
 ```
 
-Then source the `.vimrc` and run `:PlugInstall`.
+Source the `.vimrc` then run `:PlugInstall`.
 
 ### Pathogen
 
