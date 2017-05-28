@@ -1,10 +1,10 @@
 # markdown-shortcuts.vim
 
-Enables easy *italics* / **bold** / `in-line code block` and other syntaxes for editing Markdown files. iA Writer, anyone?
+Enables easy *emphasis* / **strong** / `in-line code block` and other syntaxes for editing Markdown files. iA Writer, anyone?
 
 ## Usage
 
-`<Plug>` mappings are provided, assign them to any key you like and put the mapping into your `.vimrc`. For example:
+`<Plug>` mappings are provided, assign them to any key you like, then put the mappings into your `.vimrc`. For example:
 
 ```vim
 nmap <leader>mi <Plug>(MarkdownToggleItalics)
@@ -27,7 +27,7 @@ Or even better, on MacVim you can map them to `<D-i>` etc. (If you really love i
 Put the following line into your `.vimrc`:
 
 ```vim
-Plugin 'VVVFO/markdown-shortcuts'
+Plugin 'VVVFO/markdown-shortcuts.vim'
 ```
 
 Then source the `.vimrc` and run `:PluginInstall`.
@@ -37,7 +37,7 @@ Then source the `.vimrc` and run `:PluginInstall`.
 Put this into your `.vimrc`:
 
 ```vim
-Plug 'VVVFO/markdown-shortcuts'
+Plug 'VVVFO/markdown-shortcuts.vim'
 ```
 
 Then source the `.vimrc` and run `:PlugInstall`.
@@ -48,7 +48,7 @@ Run the following command in your terminal:
 
 ```sh
 cd ~/.vim/bundle
-git clone http://github.com/VVVFO/markdown-shortcuts
+git clone http://github.com/VVVFO/markdown-shortcuts.vim
 ```
 
 ### Neobundle
@@ -56,7 +56,7 @@ git clone http://github.com/VVVFO/markdown-shortcuts
 Place this in your `.vimrc`:
 
 ```vim
-NeoBundle 'VVVFO/markdown-shortcuts'
+NeoBundle 'VVVFO/markdown-shortcuts.vim'
 ```
 
 Then source the file and run `:NeoBundleInstall`.
