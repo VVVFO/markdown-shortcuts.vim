@@ -1,3 +1,8 @@
+if exists('g:loaded_mdshortcuts')
+    finish
+endif
+let g:loaded_mdshortcuts = 1
+
 function! mdshortcuts#AddSingleCharacterAround(char)
     " viW^[ will move to the end of the word
     normal! viW
