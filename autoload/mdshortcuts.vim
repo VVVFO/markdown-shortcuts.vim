@@ -3,6 +3,7 @@ if exists('g:loaded_mdshortcuts')
 endif
 let g:loaded_mdshortcuts = 1
 
+" adding a character to the side(s) of the word where this char is not present
 function! mdshortcuts#AddSingleCharacterAround(char)
     " viW^[ will move to the end of the word
     normal! viW
@@ -30,7 +31,8 @@ function! mdshortcuts#RemoveSingleCharacterAroundWord()
     normal! viWxBxE
 endfunction
 
-" If the current WORD is surronded by the argument character then remove, otherwise add
+" If the current WORD is surronded by the argument character then remove, otherwise
+" add it to the sides missing the char
 function! mdshortcuts#ToggleSingleCharacterAroundWord(char)
     " first move to the end of the word
     normal! viW
@@ -50,6 +52,10 @@ function! mdshortcuts#ToggleSingleCharacterAroundWord(char)
     endif
 endfunction
 
+" calling with (3, '*') will be toggling the string '***' around the current word
+" if the produced string (e.g. '***') does not exist at BOTH sides yet, then
+" add it
+" otherwise add it to the side(s) where there is still no this string yet
 function! mdshortcuts#ToggleMultipleCharacterAroundWord(num, char)
     " turns 2, '*' to '**'
     let target_string = repeat(a:char, a:num)
@@ -73,6 +79,7 @@ function! mdshortcuts#ToggleMultipleCharacterAroundWord(num, char)
     endif
 endfunction
 
+" do both prepending and appending the argument string to the current word
 function! mdshortcuts#AddStringAroundWord(string)
     " viW^[ will move to the end of the word
     normal! viW
@@ -85,6 +92,8 @@ function! mdshortcuts#AddStringAroundWord(string)
     execute "normal! i" . a:string . "E"
 endfunction
 
+" removing multiple characters around both sides of a word
+" num > 0
 function! mdshortcuts#RemoveMultipleCharactersAroundWord(num)
     " viW^[l will move to the position after the end of the word
     " the repeating part is deleting a:num-1 chars back from the end
@@ -92,4 +101,32 @@ function! mdshortcuts#RemoveMultipleCharactersAroundWord(num)
     " B will move the cursor back to the beginning
     " and the second repeat will remove a:num chars from the beginning
     execute 'normal! viW' . repeat('X', a:num-1) . 'xB' . repeat('x', a:num) . 'E'
+endfunction
+
+" n denotes the level of header (H1 - H6)
+" n should be a value between 1 and 6 (inclusive)
+function! mdshortcuts#ToggleHeaderHn(n)
+    " getting the part of the current line until the first whitespace
+    let current_line = getline(".")
+    let first_split = split(current_line)[0]
+    
+    " determining current header level: 1-6 indicates having a header, 0
+    " indicates not
+    if first_split == repeat('#', strlen(first_split))
+        let current_header_level = strlen(first_split)
+    else
+        let current_header_level = 0
+    endif
+
+    " if the current level matches the argument level, then remove the header
+    " if they differs but the current level is non-zero, then change it to
+    " argument level
+    " otherwise (current level = 0) then add the argument level header
+    if current_header_level == a:n
+        normal! '^dW$'
+    elseif current_header_level != a:n && current_header_level != 0
+        execute 'normal! ^cW' . repeat('#', a:n) . '$' 
+    else
+        execute 'normal! ^i' . repeat('#', a:n) . ' $' 
+    endif
 endfunction
