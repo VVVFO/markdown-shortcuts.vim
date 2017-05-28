@@ -1,6 +1,6 @@
 # markdown-shortcuts.vim
 
-Better markdown editing in Vim.
+Better Markdown editing in Vim.
 
 ## Usage
 
