@@ -50,3 +50,5 @@ function ToggleSingleCharacterAroundWord(char)
 endfunction
 
 
+nnoremap <silent> <Plug>(ToggleItalics) :call ToggleSingleCharacterAroundWord('*')<CR>
+
