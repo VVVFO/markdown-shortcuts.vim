@@ -1,6 +1,6 @@
 # markdown-shortcuts.vim
 
-Enables easy italicize/boldify/inline-codify when editing Markdown files.
+Enables easy italicize/boldify/inline-codify for editing Markdown files. iA Writer, anyone?
 
 ## Usage
 
@@ -12,7 +12,7 @@ nmap <leader>mb <Plug>(MarkdownToggleBold)
 nmap <leader>mt <Plug>(MarkdownToggleInlineCode)
 ```
 
-Or even better, on macOS you can map them to `<D-i>`, `<D-b>` etc., iA Writer, anyone?
+Or even better, on macOS you can map them to `<D-i>`, `<D-b>` etc. (If you really love iA Writer, consider trying [goyo.vim](https://github.com/junegunn/goyo.vim) and [limelight.vim](https://github.com/junegunn/limelight.vim)).
 
 ## Installation
 
