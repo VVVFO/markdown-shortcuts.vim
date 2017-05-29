@@ -3,6 +3,11 @@
 " add it
 " otherwise add it to the side(s) where there is still no this string yet
 function! mdshortcuts#ToggleMultipleCharactersAroundWord(num, char)
+    " if the current character is space, then do nothing
+    if getline('.')[col('.')-1] == ' '
+        return
+    endif
+
     " turns 2, '*' to '**'
     let target_string = repeat(a:char, a:num)
 
