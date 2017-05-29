@@ -1,7 +1,7 @@
 " create commands for toggling
-command! MarkdownToggleItalics :call mdshortcuts#ToggleSingleCharacterAroundWord('*')
-command! MarkdownToggleInlineCode :call mdshortcuts#ToggleSingleCharacterAroundWord('`')
-command! MarkdownToggleBold :call mdshortcuts#ToggleMultipleCharacterAroundWord(2, '*')
+command! MarkdownToggleItalics :call mdshortcuts#ToggleMultipleCharactersAroundWord(1, '*')
+command! MarkdownToggleInlineCode :call mdshortcuts#ToggleMultipleCharactersAroundWord(1, '`')
+command! MarkdownToggleBold :call mdshortcuts#ToggleMultipleCharactersAroundWord(2, '*')
 command! MarkdownToggleHeaderH1 :call mdshortcuts#ToggleHeaderHn(1)
 command! MarkdownToggleHeaderH2 :call mdshortcuts#ToggleHeaderHn(2)
 command! MarkdownToggleHeaderH3 :call mdshortcuts#ToggleHeaderHn(3)
