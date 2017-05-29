@@ -130,3 +130,34 @@ function! mdshortcuts#ToggleHeaderHn(n)
         execute 'normal! ^i' . repeat('#', a:n) . ' $' 
     endif
 endfunction
+
+" insert the markdown link template []() or image template ![]()
+" argument should be either 'image' or 'link'
+" check whether the current system clipboard regsiter contains a link
+" if so insert that link into the URL field of the string inserted
+function! mdshortcuts#InsertLinkOrImage(type)
+    " take the content out of the clipboard register
+    let clipboard_content = @+
+    " loosely matches out the part that looks like an URL
+    let url = matchstr(clipboard_content, '[^ ]*\.[^ ]*')
+
+    " deciding which template to use
+    if a:type == 'image'
+        let template = '![]('
+    elseif a:type == 'link'
+        let template = '[]('
+    else
+        echoerr 'Invalid argument for mdshortcuts#InsertLinkOrImage'
+    endif
+    
+    " if the clipboard content is a URL, then insert this with URL
+    if clipboard_content == url
+        " insert the format with URL and jump to the square brackets field
+        execute 'normal! i' . template . clipboard_content . ')%h'
+    else
+        " otherwise just insert the template there
+        execute 'normal! i' . template ')hh'
+    endif
+endfunction
+
+
