@@ -106,8 +106,17 @@ endfunction
 " n denotes the level of header (H1 - H6)
 " n should be a value between 1 and 6 (inclusive)
 function! mdshortcuts#ToggleHeaderHn(n)
-    " getting the part of the current line until the first whitespace
+    " getting the first line
     let current_line = getline(".")
+
+    " if the current line is empty then add the header and stop
+    if strlen(current_line) == 0
+        execute 'normal! i' . repeat('#', a:n) . ' ' 
+        return
+    endif
+        
+    " otherwise there must be something to split and we can
+    " getting the part of the current line until the first whitespace
     let first_split = split(current_line)[0]
     
     " determining current header level: 1-6 indicates having a header, 0
