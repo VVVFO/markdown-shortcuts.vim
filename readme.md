@@ -4,21 +4,29 @@ Enables easy *emphasis* / **strong** / `in-line code block` and other syntaxes f
 
 ## Usage
 
-`<Plug>` mappings are provided, assign them to any key you like, then put the mappings into your `.vimrc`. For example:
+`<Plug>` mappings are provided, assign them to any combinations you like, then put the mappings into your `.vimrc`. For example, if you use MacVim, put the following code into your `.gvimrc` (it is important to put them in `.gvimrc` instead of `.vimrc`):
 
 ```vim
-nmap <leader>mi <Plug>(MarkdownToggleItalics)
-nmap <leader>mb <Plug>(MarkdownToggleBold)
-nmap <leader>mt <Plug>(MarkdownToggleInlineCode)
-nmap <leader>m1 <Plug>(MarkdownToggleHeaderH1)
-nmap <leader>m2 <Plug>(MarkdownToggleHeaderH2)
-nmap <leader>m3 <Plug>(MarkdownToggleHeaderH3)
-nmap <leader>m4 <Plug>(MarkdownToggleHeaderH4)
-nmap <leader>m5 <Plug>(MarkdownToggleHeaderH5)
-nmap <leader>m6 <Plug>(MarkdownToggleHeaderH6)
+if has('gui_macvim')
+  " unset two original menu shortcuts to create new mappings
+  macmenu &File.New\ Tab key=<nop>
+  macmenu &Tools.Make key=<nop>
+
+  " iA Writer Mode: On :)
+  nmap <D-1> <Plug>(MarkdownToggleHeaderH1)
+  nmap <D-2> <Plug>(MarkdownToggleHeaderH2)
+  nmap <D-3> <Plug>(MarkdownToggleHeaderH3)
+  nmap <D-4> <Plug>(MarkdownToggleHeaderH4)
+  nmap <D-5> <Plug>(MarkdownToggleHeaderH5)
+  nmap <D-6> <Plug>(MarkdownToggleHeaderH6)
+  nmap <D-k> <Plug>(MarkdownInsertLink)
+  nmap <D-b> <Plug>(MarkdownToggleBold)
+  nmap <D-i> <Plug>(MarkdownToggleItalics)
+  nmap <D-t> <Plug>(MarkdownToggleInlineCode)
+endif
 ```
 
-Or even better, on MacVim you can map them to `<D-i>` etc. (If you really love iA Writer (like me :), consider also trying out [goyo.vim](https://github.com/junegunn/goyo.vim) and [limelight.vim](https://github.com/junegunn/limelight.vim))
+Or if you do not use MacVim, you can still create custom mappings like `nmap <leader>mi <Plug>(MarkdownToggleItalics)`. (If you really love iA Writer (like me :), consider also trying out [goyo.vim](https://github.com/junegunn/goyo.vim) and [limelight.vim](https://github.com/junegunn/limelight.vim))
 
 ## Installation
 
